@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faldou DIALLO, CV Cybersécurité & Réseaux</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #2d3436;
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+  }
+  .cv-wrapper { max-width: 900px; width: 100%; }
+  .cv-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 40%, #2c5364 100%);
+    color: white;
+    padding: 40px 50px 30px;
+  }
+  .header h1 { font-size: 26pt; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .header .subtitle { font-size: 12pt; color: #8ab4c8; margin-bottom: 15px; font-weight: 400; }
+  .header .contact-bar {
+    display: flex; flex-wrap: wrap; gap: 10px 25px;
+    font-size: 9.5pt; color: #b0c4d8;
+  }
+  .header .contact-bar span { display: inline-flex; align-items: center; gap: 5px; }
+  .badge {
+    display: inline-block; background: rgba(255,255,255,0.12);
+    padding: 2px 10px; border-radius: 12px; font-size: 8.5pt; margin-left: 4px;
+  }
+  .objective {
+    background: #eef3f7; padding: 15px 50px; font-size: 10pt; color: #2c5364;
+    font-style: italic; border-bottom: 1px solid #dce4ea;
+  }
+  .body-content { padding: 30px 50px 40px; }
+  .section { margin-bottom: 22px; }
+  .section-title {
+    font-size: 12pt; font-weight: 700; color: #0f2027;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    border-bottom: 2px solid #2c5364; padding-bottom: 6px; margin-bottom: 12px;
+  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px 20px; }
+  .skill-cat { margin-bottom: 5px; }
+  .skill-cat-name { font-weight: 700; color: #2c5364; font-size: 9.5pt; }
+  .skill-cat-items { font-size: 9.5pt; color: #555; }
+  .job { margin-bottom: 18px; }
+  .job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 4px; margin-bottom: 3px;
+  }
+  .job-title { font-weight: 700; font-size: 11pt; color: #0f2027; }
+  .job-company { font-weight: 600; font-size: 10.5pt; color: #2c5364; }
+  .job-date { font-size: 9pt; color: #888; white-space: nowrap; }
+  .job-details { padding-left: 18px; margin-top: 3px; }
+  .job-details li { font-size: 9.5pt; color: #444; margin-bottom: 2px; }
+  .edu-item { margin-bottom: 8px; }
+  .edu-title { font-weight: 700; font-size: 10.5pt; color: #0f2027; }
+  .edu-detail { font-size: 9.5pt; color: #555; }
+  .edu-year { font-size: 9pt; color: #888; }
+  .two-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; }
+  .two-col-grid > div { break-inside: avoid; }
+  .interest-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .interest-tag {
+    background: #eef3f7; padding: 4px 14px; border-radius: 16px;
+    font-size: 9pt; color: #2c5364;
+  }
+  .cert-item { font-size: 9.5pt; color: #444; margin-bottom: 3px; }
+  .action-buttons {
+    display: flex; gap: 10px; justify-content: center;
+    margin-top: 25px; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; border-radius: 8px; font-size: 10pt;
+    font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: #0f2027; color: white; }
+  .btn-primary:hover { background: #1a3340; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: #0f2027; border: 2px solid #0f2027; }
+  .btn-outline:hover { background: #f0f2f5; }
+  .soft-skills { display: flex; flex-wrap: wrap; gap: 5px 12px; font-size: 9.5pt; color: #555; }
+  .soft-skills span { background: #f5f7f9; padding: 3px 10px; border-radius: 4px; }
+  @media (max-width: 700px) {
+    .header { padding: 30px 25px; }
+    .body-content { padding: 25px; }
+    .objective { padding: 12px 25px; }
+    .header h1 { font-size: 22pt; }
+    .header .contact-bar { flex-direction: column; gap: 5px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .two-col-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: white; padding: 10px; }
+    .cv-card { box-shadow: none; border: 1px solid #ddd; }
+    .action-buttons { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="cv-wrapper">
+  <div class="cv-card">
+    <div class="header">
+      <h1>Faldou DIALLO</h1>
+      <div class="subtitle">Consultant Cybersécurité &amp; Ingénieur Réseaux</div>
+      <div class="contact-bar">
+        <span>EVRY (91), Ile de France</span>
+        <span>06 98 707 721</span>
+        <span>faldoudia@gmail.com</span>
+        <span>Permis B <span class="badge">RQTH</span></span>
+      </div>
+    </div>
+
+    <div class="objective">
+      Diplomé d'un Master 2 en cybersécurité et riche de 3 années d'expériences en alternance,
+      et plusieurs années dans la vente, je postule afin de mettre mes compétences en communication
+      et ingénierie réseau au service de votre entreprise. Mon objectif est d'allier expertise technique,
+      vente et conseil, tout en renforcant mes aptitudes au sein d'une equipe dynamique.
+    </div>
+
+    <div class="body-content">
+
+      <!-- EXPERIENCES -->
+      <div class="section">
+        <div class="section-title">Experiences</div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Apprenti IA &amp; Cybersecurite</span>
+            <span class="job-company">@ Cloud-Inspire</span>
+            <span class="job-date">09/2024 - 04/2025</span>
+          </div>
+          <ul class="job-details">
+            <li>Deployer et configurer une plateforme Wazuh pour Proof of Concept et projets clients</li>
+            <li>Rediger des rapports et documentations techniques pour capitaliser les bonnes pratiques</li>
+            <li>Mettre en place la gestion des vulnerabilites et la surveillance de l'integrite des fichiers</li>
+            <li>Integrer des agents Wazuh sur environnements Windows et Linux pour supervision et detection</li>
+            <li>Simuler et traiter des incidents de securite pour tester la resilience (brute force, alteration de fichiers, mailing)</li>
+            <li>Concevoir et mettre en oeuvre des regles de detection adaptees aux cas d'usage clients</li>
+            <li>Automatiser des taches quotidiennes en creant des workflows n8n (emails, mise a jour de fichiers)</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Ingenieur Reseaux, Customer Success Engineer</span>
+            <span class="job-company">@ Cloudi-Fi</span>
+            <span class="job-date">01/2023 - 09/2024</span>
+          </div>
+          <ul class="job-details">
+            <li>Integration et deploiement de portails captifs pour differents controleurs chez les clients</li>
+            <li>Implementation de solutions via API sur routeurs Cisco Meraki</li>
+            <li>Gestion et resolution d'incidents de securite pour une cinquantaine de clients</li>
+            <li>Pilotage et management de deux projets internes, menes avec un taux de reussite de 96%</li>
+            <li>Redaction et publication de plus de 70 documents techniques</li>
+            <li>Mise en place de pare-feu, VPN, solutions cloud et application des politiques de securite</li>
+            <li>Configuration et deploiement de technologies et outils de securite (Zscaler, FortiGate, Firewall, Mikrotik, Cisco Meraki, WLC, Aruba, Ruckus)</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Administrateur Systeme et Reseaux</span>
+            <span class="job-company">@ DB-Investissement</span>
+            <span class="job-date">09/2022 - 01/2023</span>
+          </div>
+          <ul class="job-details">
+            <li>Gestion et inventaire des services informatiques avec GLPI</li>
+            <li>Installation et configuration Zabbix et Windows Server 2022</li>
+            <li>Mise en place et formation des clients sur le gestionnaire Keeper Security</li>
+            <li>Intervention, installation et deploiement des hotes chez les clients</li>
+            <li>Configuration des postes de travail en fonction des besoins du client</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Assistant Marketing Digital</span>
+            <span class="job-company">@ Image 30 (Stage)</span>
+            <span class="job-date">06/2021 - 08/2021</span>
+          </div>
+          <ul class="job-details">
+            <li>Creation de contenus web, veille concurrentielle, gestion et travail d'equipe</li>
+            <li>Operation marketing, prospection des entreprises (France, Canada, Egypte)</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Stagiaire Developpement Web</span>
+            <span class="job-company">@ Orange</span>
+            <span class="job-date">09/2014 - 03/2015</span>
+          </div>
+          <ul class="job-details">
+            <li>Conception et realisation de sites web, mise a jour du site en backoffice</li>
+            <li>Modelisation et conception des bases de donnees avec MySQL Workbench</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Technicien Superieur Systeme Reseaux</span>
+            <span class="job-company">@ Compagnie des Bauxites de Guinee</span>
+            <span class="job-date">09/2014 - 03/2015</span>
+          </div>
+          <ul class="job-details">
+            <li>Depannage et installation de routeurs et switchs</li>
+            <li>Exploitation et securisation des infrastructures reseau et administration des serveurs IBM AS/400</li>
+            <li>Support Helpdesk et interventions sur site (cablage et soudure de fibre optique)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HARDSKILLS -->
+      <div class="section">
+        <div class="section-title">Hard Skills</div>
+        <div class="skills-grid">
+          <div class="skill-cat">
+            <div class="skill-cat-name">Securite des SI</div>
+            <div class="skill-cat-items">Cybersecurite, SSI, Gestion des vulnerabilites, Conformite reglementaire, Audits configuration, Cartographie SSI, Etudes d'impact, Documentation conformite, Revue de sites (referenciels ANSSI et ENGIE)</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Reseaux</div>
+            <div class="skill-cat-items">Routage, SDWAN, LAN/WAN, AD, DHCP, Wifi, VPN, RADIUS</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Technologies</div>
+            <div class="skill-cat-items">Cisco Meraki, FortiGate, Aruba, Zscaler, Mikrotik, Elasticsearch (Kibana), Graylog, Wazuh</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Systemes d'Exploitation</div>
+            <div class="skill-cat-items">Windows Server 2016/2019/2022, Linux, Ubuntu, Debian, ESXi</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Virtualisation</div>
+            <div class="skill-cat-items">Hyper-V, VMware</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Dev &amp; Marketing</div>
+            <div class="skill-cat-items">HTML/CSS, Wordpress, IA, n8n, LLM</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Cloud</div>
+            <div class="skill-cat-items">Azure, AWS</div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-name">Outils</div>
+            <div class="skill-cat-items">Zabbix, GLPI, Word, Excel, Maintien en condition de securite (MCS), Controles Industriels (ICS)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOFTSKILLS -->
+      <div class="section">
+        <div class="section-title">Soft Skills</div>
+        <div class="soft-skills">
+          <span>Curiosite</span>
+          <span>Esprit d'equipe</span>
+          <span>Gestion des priorites</span>
+          <span>Reactivite</span>
+          <span>Aisance relationnelle</span>
+          <span>Esprit d'analyse</span>
+          <span>Capacite de synthese</span>
+          <span>Dynamisme</span>
+          <span>Professionnalisme</span>
+          <span>Veille technologique</span>
+          <span>Anticipation des evolutions</span>
+          <span>Apprehension du risque technique</span>
+          <span>Capacite a conseiller et depanner</span>
+        </div>
+      </div>
+
+      <!-- FORMATION -->
+      <div class="section">
+        <div class="section-title">Formation</div>
+        <div class="edu-item">
+          <span class="edu-title">Master II, Ingenieur Systeme Reseaux Cybersecurite</span>
+          <span class="edu-detail">MBA-ESG Paris</span>
+          <span class="edu-year">2024-2025</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-title">Master I, Administrateur Systeme et Reseaux et Cloud</span>
+          <span class="edu-detail">Aston Arcueil</span>
+          <span class="edu-year">2022-2024</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-title">Licence Informatique</span>
+          <span class="edu-detail">Universite Sorbonne Paris</span>
+          <span class="edu-year">2020-2022</span>
+        </div>
+      </div>
+
+      <!-- LANGUES -->
+      <div class="section">
+        <div class="section-title">Langues</div>
+        <div class="two-col-grid">
+          <div><b>Francais</b>, Courant</div>
+          <div><b>Anglais</b>, Professionnel</div>
+        </div>
+      </div>
+
+      <!-- CENTRES D'INTERET -->
+      <div class="section">
+        <div class="section-title">Centres d'interet</div>
+        <div class="interest-list">
+          <span class="interest-tag">Informatique</span>
+          <span class="interest-tag">Lecture</span>
+          <span class="interest-tag">Football</span>
+          <span class="interest-tag">Basketball</span>
+          <span class="interest-tag">Musculation</span>
+          <span class="interest-tag">Cuisine</span>
+          <span class="interest-tag">Developpement personnel</span>
+          <span class="interest-tag">Benevolats</span>
+          <span class="interest-tag">Entreprenariat</span>
+        </div>
+      </div>
+
+      <!-- BOUTONS -->
+      <div class="action-buttons">
+        <button class="btn btn-primary" onclick="window.print()">Telecharger PDF</button>
+        <a href="mailto:faldoudia@gmail.com?subject=Candidature%20Faldou%20DIALLO" class="btn btn-outline">Me contacter</a>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:15px;font-size:8.5pt;color:#999">
+    Faldou DIALLO, CV mis a jour le 23/06/2026
+  </p>
+</div>
+</body>
+</html>

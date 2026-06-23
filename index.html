@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faldou DIALLO, Curriculum Vitae</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    background: #eef1f5;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .page {
+    max-width: 210mm;
+    width: 100%;
+    background: white;
+    box-shadow: 0 3px 25px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .top-bar {
+    background: #13294b;
+    color: white;
+    padding: 28px 35px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .name-title h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 3px;
+  }
+  .name-title .sub {
+    font-size: 9.5pt;
+    color: #90b4d9;
+  }
+  .contact-info {
+    text-align: right;
+    font-size: 8.5pt;
+    color: #b8d0e5;
+    line-height: 1.7;
+  }
+  .badge-rqth {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 7.5pt;
+  }
+  .cv-body {
+    padding: 22px 35px 30px;
+  }
+  .section {
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #13294b;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #13294b;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+  }
+  .exp-item {
+    margin-bottom: 12px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+  }
+  .exp-role {
+    font-weight: 700;
+    font-size: 10pt;
+    color: #13294b;
+  }
+  .exp-company {
+    font-weight: 600;
+    font-size: 9.5pt;
+    color: #2a4a7a;
+  }
+  .exp-date {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .exp-details {
+    padding-left: 16px;
+    margin-top: 2px;
+  }
+  .exp-details li {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 1px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 15px;
+  }
+  .skill-cat {
+    margin-bottom: 4px;
+  }
+  .skill-cat-name {
+    font-weight: 700;
+    color: #13294b;
+    font-size: 9pt;
+  }
+  .skill-cat-items {
+    font-size: 9pt;
+    color: #444;
+  }
+  .soft-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .soft-list span {
+    background: #eef3f8;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .edu-item {
+    margin-bottom: 5px;
+  }
+  .edu-degree {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: #13294b;
+  }
+  .edu-school {
+    font-size: 9pt;
+    color: #444;
+  }
+  .edu-year {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .lang-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .lang-item { font-size: 9.5pt; }
+  .lang-item b { color: #13294b; }
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .interests span {
+    background: #eef3f8;
+    padding: 3px 12px;
+    border-radius: 14px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 9.5pt;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-primary { background: #13294b; color: white; }
+  .btn-primary:hover { background: #1e3a5f; }
+  .btn-outline { background: transparent; color: #13294b; border: 2px solid #13294b; }
+  .btn-outline:hover { background: #eef3f8; }
+  .footer-note {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 7.5pt;
+    color: #aaa;
+    padding-bottom: 10px;
+  }
+  @media (max-width: 700px) {
+    .top-bar { flex-direction: column; }
+    .contact-info { text-align: left; width: 100%; }
+    .cv-body { padding: 15px 18px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .action-buttons { display: none; }
+    .top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar">
+    <div class="name-title">
+      <h1>Faldou DIALLO</h1>
+      <div class="sub">Consultant Cybersécurité &amp; Ingénieur Réseaux</div>
+    </div>
+    <div class="contact-info">
+      Faldoudia@gmail.com<br>
+      06 98 707 721<br>
+      Ile de France<br>
+      Permis B <span class="badge-rqth">Reconnaissance RQTH</span>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- EXPERIENCES PROFESSIONNELLES -->
+    <div class="section">
+      <div class="section-title">Experiences professionnelles</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Apprenti IA &amp; Cybersecurite</span>
+          <span class="exp-company">@ Cloud-Inspire — alternance</span>
+          <span class="exp-date">09/2024 - 04/2025</span>
+        </div>
+        <ul class="exp-details">
+          <li>Deployer et configurer une plateforme Wazuh pour Proof of Concept et projets clients</li>
+          <li>Rediger des rapports et documentations techniques pour capitaliser les bonnes pratiques</li>
+          <li>Mettre en place la gestion des vulnerabilites et la surveillance de l'integrite des fichiers</li>
+          <li>Integrer des agents Wazuh sur environnements Windows et Linux pour supervision et detection</li>
+          <li>Simuler et traiter des incidents de securite pour tester la resilience (brute force, alteration de fichiers, mailing)</li>
+          <li>Concevoir et mettre en oeuvre des regles de detection adaptees aux cas d'usage clients</li>
+          <li>Automatiser des taches quotidiennes en creant des workflows n8n (emails, mise a jour de fichiers)</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Ingenieur Reseaux | Customer Success Engineer</span>
+          <span class="exp-company">@ Cloudi-Fi — alternance</span>
+          <span class="exp-date">01/2023 - 09/2024</span>
+        </div>
+        <ul class="exp-details">
+          <li>Integration et deploiement de portails captifs pour differents controleurs chez les clients</li>
+          <li>Implementation de solutions via API sur routeurs Cisco Meraki</li>
+          <li>Gestion et resolution d'incidents de securite pour une cinquantaine de clients</li>
+          <li>Pilotage et management de deux projets internes, menes avec un taux de reussite de 96%</li>
+          <li>Redaction et publication de plus de 70 documents techniques (Wifi, securite, infrastructure)</li>
+          <li>Mise en place de pare-feu, VPN, solutions cloud et application des politiques de securite</li>
+          <li>Configuration et deploiement de technologies et outils de securite (Zscaler, FortiGate, Firewall, Mikrotik, Cisco Meraki, WLC, Aruba, Ruckus)</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Administrateur Systeme et Reseaux</span>
+          <span class="exp-company">@ DB-Investissement — alternance</span>
+          <span class="exp-date">09/2022 - 01/2023</span>
+        </div>
+        <ul class="exp-details">
+          <li>Gestion et inventaire des services informatiques avec GLPI</li>
+          <li>Installation et configuration Zabbix et Windows Server 2022</li>
+          <li>Mise en place et formation des clients sur Keeper Security</li>
+          <li>Intervention, installation et deploiement des hotes chez les clients</li>
+          <li>Configuration des postes de travail en fonction des besoins du client</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Assistant Marketing Digital</span>
+          <span class="exp-company">@ Image 30 — stage</span>
+          <span class="exp-date">06/2021 - 08/2021</span>
+        </div>
+        <ul class="exp-details">
+          <li>Creation de contenus web, veille concurrentielle, gestion et travail d'equipe</li>
+          <li>Operations marketing, prospection des entreprises (France, Canada, Egypte)</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Stagiaire Developpement Web</span>
+          <span class="exp-company">@ Orange — stage</span>
+          <span class="exp-date">09/2014 - 03/2015</span>
+        </div>
+        <ul class="exp-details">
+          <li>Conception et realisation de sites web, mise a jour du site en backoffice</li>
+          <li>Modelisation et conception des bases de donnees avec MySQL Workbench</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Technicien Superieur Systeme Reseaux</span>
+          <span class="exp-company">@ Compagnie des Bauxites de Guinee</span>
+          <span class="exp-date">09/2014 - 03/2015</span>
+        </div>
+        <ul class="exp-details">
+          <li>Depannage et installation de routeurs et switchs</li>
+          <li>Exploitation et securisation des infrastructures reseau</li>
+          <li>Administration des serveurs IBM AS/400</li>
+          <li>Support Helpdesk et interventions sur site (cablage et soudure de fibre optique)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HARD SKILLS -->
+    <div class="section">
+      <div class="section-title">Hard Skills</div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <div class="skill-cat-name">Cloud</div>
+          <div class="skill-cat-items">Azure, AWS</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Virtualisation</div>
+          <div class="skill-cat-items">Hyper-V, VMware</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Dev &amp; Marketing</div>
+          <div class="skill-cat-items">HTML/CSS, Wordpress, IA, n8n, LLM</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Systeme d'exploitation</div>
+          <div class="skill-cat-items">Windows Server 2016/2019/2022, Linux, Ubuntu, Debian, ESXi</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Reseaux</div>
+          <div class="skill-cat-items">Cisco Meraki, FortiGate, Aruba, Zscaler, Mikrotik, Elasticsearch (Kibana), Graylog, Wazuh</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Protocoles reseaux</div>
+          <div class="skill-cat-items">Routage, SDWAN, LAN/WAN, AD, DHCP, Wifi, VPN, RADIUS</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Outils et technologies</div>
+          <div class="skill-cat-items">Zabbix, GLPI, Word, Excel</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="section">
+      <div class="section-title">Soft Skills</div>
+      <div class="soft-list">
+        <span>Curiosite</span>
+        <span>Esprit d'equipe</span>
+        <span>Gestion des priorites</span>
+        <span>Reactivite</span>
+        <span>Aisance relationnelle</span>
+        <span>Esprit d'analyse</span>
+        <span>Capacite de synthese</span>
+        <span>Dynamisme</span>
+        <span>Professionnalisme</span>
+        <span>Veille technologique</span>
+        <span>Anticipation des evolutions</span>
+        <span>Apprehension du risque technique</span>
+        <span>Capacite a conseiller et depanner</span>
+      </div>
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="section">
+      <div class="section-title">Formations</div>
+      <div class="edu-item">
+        <span class="edu-degree">Master II, Ingenieur Systeme Reseaux Cybersecurite</span>
+        <span class="edu-year">2024-2025</span><br>
+        <span class="edu-school">MBA-ESG Paris</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Master I, Administrateur Systeme et Reseaux et Cloud</span>
+        <span class="edu-year">2022-2024</span><br>
+        <span class="edu-school">Ecole Aston Arcueil</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Licence Informatique</span>
+        <span class="edu-year">2020-2022</span><br>
+        <span class="edu-school">Universite Sorbonne Paris</span>
+      </div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="section">
+      <div class="section-title">Langues</div>
+      <div class="lang-grid">
+        <div class="lang-item"><b>Francais</b>, Courant</div>
+        <div class="lang-item"><b>Anglais</b>, Professionnel</div>
+      </div>
+    </div>
+
+    <!-- CENTRES D'INTERETS -->
+    <div class="section">
+      <div class="section-title">Centres d'interets</div>
+      <div class="interests">
+        <span>Informatique</span>
+        <span>Lecture</span>
+        <span>Football</span>
+        <span>Basketball</span>
+        <span>Musculation</span>
+        <span>Cuisine</span>
+        <span>Developpement personnel</span>
+        <span>Benevolats</span>
+        <span>Entreprenariat</span>
+      </div>
+    </div>
+
+    <!-- BOUTONS -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="window.print()">Telecharger PDF</button>
+      <a href="mailto:faldoudia@gmail.com?subject=Candidature%20Faldou%20DIALLO" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Faldou DIALLO, CV mis a jour le 23/06/2026
+  </div>
+</div>
+</body>
+</html>

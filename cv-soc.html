@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faldou DIALLO, Analyste SOC</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    background: #eef1f5;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .page {
+    max-width: 210mm;
+    width: 100%;
+    background: white;
+    box-shadow: 0 3px 25px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .top-bar {
+    background: #13294b;
+    color: white;
+    padding: 28px 35px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .name-title h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 3px;
+  }
+  .name-title .sub {
+    font-size: 9.5pt;
+    color: #90b4d9;
+  }
+  .contact-info {
+    text-align: right;
+    font-size: 8.5pt;
+    color: #b8d0e5;
+    line-height: 1.7;
+  }
+  .badge-rqth {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 7.5pt;
+  }
+  .cv-body {
+    padding: 22px 35px 30px;
+  }
+  .section {
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #13294b;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #13294b;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+  }
+  .exp-item {
+    margin-bottom: 12px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+  }
+  .exp-role {
+    font-weight: 700;
+    font-size: 10pt;
+    color: #13294b;
+  }
+  .exp-company {
+    font-weight: 600;
+    font-size: 9.5pt;
+    color: #2a4a7a;
+  }
+  .exp-date {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .exp-details {
+    padding-left: 16px;
+    margin-top: 2px;
+  }
+  .exp-details li {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 1px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 15px;
+  }
+  .skill-cat {
+    margin-bottom: 4px;
+  }
+  .skill-cat-name {
+    font-weight: 700;
+    color: #13294b;
+    font-size: 9pt;
+  }
+  .skill-cat-items {
+    font-size: 9pt;
+    color: #444;
+  }
+  .soft-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .soft-list span {
+    background: #eef3f8;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .edu-item {
+    margin-bottom: 5px;
+  }
+  .edu-degree {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: #13294b;
+  }
+  .edu-school {
+    font-size: 9pt;
+    color: #444;
+  }
+  .edu-year {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .lang-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .lang-item { font-size: 9.5pt; }
+  .lang-item b { color: #13294b; }
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .interests span {
+    background: #eef3f8;
+    padding: 3px 12px;
+    border-radius: 14px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 9.5pt;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-primary { background: #13294b; color: white; }
+  .btn-primary:hover { background: #1e3a5f; }
+  .btn-outline { background: transparent; color: #13294b; border: 2px solid #13294b; }
+  .btn-outline:hover { background: #eef3f8; }
+  .footer-note {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 7.5pt;
+    color: #aaa;
+    padding-bottom: 10px;
+  }
+  @media (max-width: 700px) {
+    .top-bar { flex-direction: column; }
+    .contact-info { text-align: left; width: 100%; }
+    .cv-body { padding: 15px 18px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .action-buttons { display: none; }
+    .top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar">
+    <div class="name-title">
+      <h1>Faldou DIALLO</h1>
+      <div class="sub">Analyste SOC — Cybersécurité</div>
+    </div>
+    <div class="contact-info">
+      Faldoudia@gmail.com<br>
+      06 98 707 721<br>
+      Ile de France<br>
+      Permis B <span class="badge-rqth">Reconnaissance RQTH</span>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- PROFIL -->
+    <div class="section">
+      <div class="section-title">Profil</div>
+      <p style="font-size:9pt;color:#333;margin-bottom:6px;">
+        Analyste cybersécurité avec expérience opérationnelle en détection d'incidents, administration SIEM (Wazuh), gestion de vulnérabilités (CVE), surveillance d'intégrité (FIM) et investigation forensique. Compétent dans la mise en œuvre de règles de corrélation, l'analyse de logs (Graylog, Kibana) et la simulation d'attaques pour tester la résilience des systèmes. 
+      </p>
+    </div>
+
+    <!-- EXPERIENCES PROFESSIONNELLES -->
+    <div class="section">
+      <div class="section-title">Experiences professionnelles</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Apprenti IA &amp; Cybersécurité</span>
+          <span class="exp-company">@ Cloud-Inspire — alternance</span>
+          <span class="exp-date">09/2024 - 04/2025</span>
+        </div>
+        <ul class="exp-details">
+          <li>Déploiement et configuration de la plateforme Wazuh (SIEM) pour la supervision et la détection d'intrusions sur environnements Windows et Linux</li>
+          <li>Mise en place de la gestion des vulnérabilités (CVE) et surveillance de l'intégrité des fichiers (FIM)</li>
+          <li>Conception et implémentation de règles de détection (corrélation, custom decoders) adaptées aux cas d'usage clients</li>
+          <li>Simulation et traitement d'incidents de sécurité (brute force, altération de fichiers, mailing) pour tester la résilience</li>
+          <li>Intégration d'agents Wazuh sur environnements hétérogènes pour la collecte de logs et la télémétrie</li>
+          <li>Analyse des alertes, tri et escalade vers les équipes concernées</li>
+          <li>Rédaction de rapports d'incidents et de documentation technique</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Customer Success Engineer | Cybersecurite &amp; Avant-vente</span>
+          <span class="exp-company">@ Cloudi-Fi — alternance</span>
+          <span class="exp-date">01/2023 - 09/2024</span>
+        </div>
+        <ul class="exp-details">
+          <li>Analyse d'incidents techniques : diagnostic des problèmes de connexion, analyse de logs (Graylog, Kibana, Nginx) et coordination avec les équipes internes</li>
+          <li>Configuration des paramètres réseau (VLAN, DHCP, authentification RADIUS) et sécurisation des accès</li>
+          <li>Déploiement de portails captifs sécurisés et intégration aux infrastructures réseau (Cisco Meraki, FortiGate, Aruba)</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Administrateur Systeme et Réseaux</span>
+          <span class="exp-company">@ DB-Investissement — alternance</span>
+          <span class="exp-date">09/2022 - 01/2023</span>
+        </div>
+        <ul class="exp-details">
+          <li>Installation et configuration de Zabbix pour la supervision des infrastructures</li>
+          <li>Mise en place de Keeper Security (gestion de mots de passe et sécurisation des accès)</li>
+          <li>Gestion des inventaires et suivi des actifs avec GLPI</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COMPETENCES SOC -->
+    <div class="section">
+      <div class="section-title">Compétences SOC</div>
+      <div class="exp-item" style="margin-bottom:0;">
+        <ul class="exp-details" style="display:grid;grid-template-columns:1fr 1fr;gap:2px 20px;">
+          <li>Détection d'incidents (SIEM)</li>
+          <li>Administration Wazuh</li>
+          <li>Gestion des vulnérabilités (CVE)</li>
+          <li>File Integrity Monitoring (FIM)</li>
+          <li>Règles de corrélation</li>
+          <li>Custom decoders Wazuh</li>
+          <li>Simulation d'attaques</li>
+          <li>Analyse de logs (Graylog, Kibana)</li>
+          <li>Investigation forensique</li>
+          <li>Tri et escalade d'alertes</li>
+          <li>Rapports d'incidents</li>
+          <li>Hardening systèmes Linux/Windows</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HARD SKILLS -->
+    <div class="section">
+      <div class="section-title">Expertise technique</div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <div class="skill-cat-name">SIEM &amp; Detection</div>
+          <div class="skill-cat-items">Wazuh (SIEM, FIM, EDR), SCA, vulnérabilités CVE, custom decoders, règles de corrélation</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Analyse de logs</div>
+          <div class="skill-cat-items">Graylog, Kibana (Elasticsearch), Nginx, syslog, journaux Windows/Linux</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Sécurisation &amp; Hardening</div>
+          <div class="skill-cat-items">Keeper Security, FIM, segmentation réseau, VLAN, VPN, RADIUS, pare-feu</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Systèmes</div>
+          <div class="skill-cat-items">Windows Server 2016/2019/2022, Linux (Ubuntu, Debian), Active Directory, ESXi</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Infrastructure réseau</div>
+          <div class="skill-cat-items">Cisco Meraki, FortiGate, Aruba, Ruckus, Zscaler, Mikrotik, SD-WAN</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Supervision &amp; Automatisation</div>
+          <div class="skill-cat-items">Zabbix, GLPI, n8n, Python, scripting</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="section">
+      <div class="section-title">Soft Skills</div>
+      <div class="soft-list">
+        <span>Esprit d'analyse</span>
+        <span>Rigueur</span>
+        <span>Reactivite</span>
+        <span>Methodique</span>
+        <span>Capacite de synthese</span>
+        <span>Curiosite technique</span>
+        <span>Veille technologique</span>
+        <span>Esprit d'equipe</span>
+        <span>Anticipation des risques</span>
+        <span>Apprehension du risque technique</span>
+      </div>
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="section">
+      <div class="section-title">Formations</div>
+      <div class="edu-item">
+        <span class="edu-degree">Master II, Ingenieur Systeme Reseaux Cybersecurite</span>
+        <span class="edu-year">2024-2025</span><br>
+        <span class="edu-school">MBA-ESG Paris</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Master I, Administrateur Systeme et Reseaux et Cloud</span>
+        <span class="edu-year">2022-2024</span><br>
+        <span class="edu-school">Ecole Aston Arcueil</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Licence Informatique</span>
+        <span class="edu-year">2020-2022</span><br>
+        <span class="edu-school">Universite Sorbonne Paris</span>
+      </div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="section">
+      <div class="section-title">Langues</div>
+      <div class="lang-grid">
+        <div class="lang-item"><b>Francais</b>, Courant</div>
+        <div class="lang-item"><b>Anglais</b>, Professionnel</div>
+      </div>
+    </div>
+
+    <!-- BOUTONS -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="window.print()">Telecharger PDF</button>
+      <a href="mailto:faldoudia@gmail.com?subject=Candidature%20Analyste%20SOC%20-%20Faldou%20DIALLO" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Faldou DIALLO, CV Analyste SOC — mis a jour le 19/07/2026
+  </div>
+</div>
+</body>
+</html>

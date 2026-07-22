@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faldou DIALLO, Ingenieur Avant-Vente</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    background: #eef1f5;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .page {
+    max-width: 210mm;
+    width: 100%;
+    background: white;
+    box-shadow: 0 3px 25px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .top-bar {
+    background: #13294b;
+    color: white;
+    padding: 28px 35px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .name-title h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 3px;
+  }
+  .name-title .sub {
+    font-size: 9.5pt;
+    color: #90b4d9;
+  }
+  .contact-info {
+    text-align: right;
+    font-size: 8.5pt;
+    color: #b8d0e5;
+    line-height: 1.7;
+  }
+  .badge-rqth {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 7.5pt;
+  }
+  .cv-body {
+    padding: 22px 35px 30px;
+  }
+  .section {
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #13294b;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #13294b;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+  }
+  .exp-item {
+    margin-bottom: 12px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+  }
+  .exp-role {
+    font-weight: 700;
+    font-size: 10pt;
+    color: #13294b;
+  }
+  .exp-company {
+    font-weight: 600;
+    font-size: 9.5pt;
+    color: #2a4a7a;
+  }
+  .exp-date {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .exp-details {
+    padding-left: 16px;
+    margin-top: 2px;
+  }
+  .exp-details li {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 1px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 15px;
+  }
+  .skill-cat {
+    margin-bottom: 4px;
+  }
+  .skill-cat-name {
+    font-weight: 700;
+    color: #13294b;
+    font-size: 9pt;
+  }
+  .skill-cat-items {
+    font-size: 9pt;
+    color: #444;
+  }
+  .soft-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .soft-list span {
+    background: #eef3f8;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .edu-item {
+    margin-bottom: 5px;
+  }
+  .edu-degree {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: #13294b;
+  }
+  .edu-school {
+    font-size: 9pt;
+    color: #444;
+  }
+  .edu-year {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .lang-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .lang-item { font-size: 9.5pt; }
+  .lang-item b { color: #13294b; }
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .interests span {
+    background: #eef3f8;
+    padding: 3px 12px;
+    border-radius: 14px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 9.5pt;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-primary { background: #13294b; color: white; }
+  .btn-primary:hover { background: #1e3a5f; }
+  .btn-outline { background: transparent; color: #13294b; border: 2px solid #13294b; }
+  .btn-outline:hover { background: #eef3f8; }
+  .footer-note {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 7.5pt;
+    color: #aaa;
+    padding-bottom: 10px;
+  }
+  @media (max-width: 700px) {
+    .top-bar { flex-direction: column; }
+    .contact-info { text-align: left; width: 100%; }
+    .cv-body { padding: 15px 18px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .action-buttons { display: none; }
+    .top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar">
+    <div class="name-title">
+      <h1>Faldou DIALLO</h1>
+      <div class="sub">Ingenieur Avant-Vente — Cybersecurité &amp; Réseaux</div>
+    </div>
+    <div class="contact-info">
+      Faldoudia@gmail.com<br>
+      06 98 707 721<br>
+      Ile de France<br>
+      Permis B <span class="badge-rqth">Reconnaissance RQTH</span>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- PROFIL -->
+    <div class="section">
+      <div class="section-title">Profil</div>
+      <p style="font-size:9pt;color:#333;margin-bottom:6px;">
+        Profil hybride combinant expertise technique cybersécurité/réseaux et compétences commerciales. Expérience en démonstration technique, chiffrage, rédaction de réponses aux appels d'offres (RFP) et accompagnement des équipes commerciales. Capable de vulgariser des solutions techniques complexes pour des décideurs et de piloter les phases de PoC jusqu'à la signature.
+      </p>
+    </div>
+
+    <!-- EXPERIENCES PROFESSIONNELLES -->
+    <div class="section">
+      <div class="section-title">Experiences professionnelles</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Customer Success Engineer | Cybersecurite &amp; Avant-vente</span>
+          <span class="exp-company">@ Cloudi-Fi — alternance</span>
+          <span class="exp-date">01/2023 - 09/2024</span>
+        </div>
+        <ul class="exp-details">
+          <li>Accompagnement avant-vente : analyse des besoins clients, cadrage technique et présentation des solutions Cloudi-Fi adaptées à leurs infrastructures</li>
+          <li>Démonstrations techniques et PoC : conception d'architectures sur mesure, configuration de portails captifs et intégration aux équipements clients (Cisco Meraki, Cisco WLC, Aruba, Ruckus, Fortinet)</li>
+          <li>Rédaction de propositions techniques et réponses aux appels d'offres en collaboration avec les équipes commerciales</li>
+          <li>Chiffrage et dimensionnement des solutions selon le périmètre client</li>
+          <li>Participation aux comités techniques et rendez-vous clients en soutien du commercial</li>
+          <li>Accompagnement phases de recette et mise en production jusqu'au go-live</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Apprenti IA &amp; Cybersécurité</span>
+          <span class="exp-company">@ Cloud-Inspire — alternance</span>
+          <span class="exp-date">09/2024 - 04/2025</span>
+        </div>
+        <ul class="exp-details">
+          <li>Déploiement et configuration de Wazuh (SIEM) pour Proof of Concept clients — démonstrations et accompagnement</li>
+          <li>Rédaction de rapports techniques et documentations d'aide à la décision pour les prospects et clients</li>
+          <li>Conception de règles de détection et simulation d'incidents pour démontrer la valeur de la solution</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Administrateur Système et Réseaux</span>
+          <span class="exp-company">@ DB-Investissement — alternance</span>
+          <span class="exp-date">09/2022 - 01/2023</span>
+        </div>
+        <ul class="exp-details">
+          <li>Installation et configuration de solutions de supervision (Zabbix) et de sécurisation (Keeper Security)</li>
+          <li>Déploiement et formation des clients — accompagnement dans l'adoption des outils</li>
+          <li>Support technique de proximité et résolution d'incidents</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COMPETENCES AVANT-VENTE -->
+    <div class="section">
+      <div class="section-title">Compétences Avant-Vente</div>
+      <div class="exp-item" style="margin-bottom:0;">
+        <ul class="exp-details" style="display:grid;grid-template-columns:1fr 1fr;gap:2px 20px;">
+          <li>Analyse de besoins</li>
+          <li>Démonstrations techniques</li>
+          <li>Proof of Concept (PoC)</li>
+          <li>Réponse aux appels d'offres (RFP)</li>
+          <li>Chiffrage et dimensionnement</li>
+          <li>Présentations décideurs</li>
+          <li>Architecture solution</li>
+          <li>Accompagnement go-live</li>
+          <li>Vulgarisation technique</li>
+          <li>Relation partenaires</li>
+          <li>Argumentaire technique</li>
+          <li>Veille concurrentielle</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HARD SKILLS -->
+    <div class="section">
+      <div class="section-title">Expertise technique</div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <div class="skill-cat-name">Cybersecurité</div>
+          <div class="skill-cat-items">Wazuh (SIEM, FIM, EDR), Keeper Security, gestion CVE, règles de détection</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Infrastructures réseau</div>
+          <div class="skill-cat-items">Cisco Meraki, Cisco WLC, Aruba, Ruckus, FortiGate, Zscaler, Mikrotik</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Cloud &amp; Virtualisation</div>
+          <div class="skill-cat-items">Azure, AWS, Hyper-V, VMware, ESXi</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Protocoles &amp; Services</div>
+          <div class="skill-cat-items">VLAN, DHCP, DNS, VPN, RADIUS, SD-WAN, TCP/IP, Wi-Fi, Active Directory</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Supervision &amp; Logs</div>
+          <div class="skill-cat-items">Zabbix, GLPI, Graylog, Kibana (Elasticsearch), Nginx</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Outils &amp; Automatisation</div>
+          <div class="skill-cat-items">n8n, Word, Excel, PowerPoint, documentation technique</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="section">
+      <div class="section-title">Soft Skills</div>
+      <div class="soft-list">
+        <span>Aisance relationnelle</span>
+        <span>Persuasion</span>
+        <span>Esprit d'analyse</span>
+        <span>Capacite de synthese</span>
+        <span>Presentation orale</span>
+        <span>Negociation</span>
+        <span>Gestion des priorites</span>
+        <span>Reactivite</span>
+        <span>Professionnalisme</span>
+        <span>Esprit d'equipe</span>
+      </div>
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="section">
+      <div class="section-title">Formations</div>
+      <div class="edu-item">
+        <span class="edu-degree">Master II, Ingenieur Systeme Reseaux Cybersecurite</span>
+        <span class="edu-year">2024-2025</span><br>
+        <span class="edu-school">MBA-ESG Paris</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Master I, Administrateur Systeme et Reseaux et Cloud</span>
+        <span class="edu-year">2022-2024</span><br>
+        <span class="edu-school">Ecole Aston Arcueil</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Licence Informatique</span>
+        <span class="edu-year">2020-2022</span><br>
+        <span class="edu-school">Universite Sorbonne Paris</span>
+      </div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="section">
+      <div class="section-title">Langues</div>
+      <div class="lang-grid">
+        <div class="lang-item"><b>Francais</b>, Courant</div>
+        <div class="lang-item"><b>Anglais</b>, Professionnel</div>
+      </div>
+    </div>
+
+    <!-- BOUTONS -->
+    <div class="action-buttons">
+      <button class="btn btn-primary" onclick="window.print()">Telecharger PDF</button>
+      <a href="mailto:faldoudia@gmail.com?subject=Candidature%20Ingenieur%20Avant-Vente%20-%20Faldou%20DIALLO" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Faldou DIALLO, CV Ingenieur Avant-Vente — mis a jour le 19/07/2026
+  </div>
+</div>
+</body>
+</html>

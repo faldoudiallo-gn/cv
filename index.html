@@ -1,393 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
+<head><meta charset="UTF-8"><title>CVs - Faldou DIALLO</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faldou DIALLO, Customer Success Engineer</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-    font-size: 10pt;
-    line-height: 1.45;
-    color: #1a1a1a;
-    background: #eef1f5;
-    padding: 25px 15px;
-    display: flex;
-    justify-content: center;
-  }
-  .page {
-    max-width: 210mm;
-    width: 100%;
-    background: white;
-    box-shadow: 0 3px 25px rgba(0,0,0,0.08);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .top-bar {
-    background: #13294b;
-    color: white;
-    padding: 28px 35px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .name-title h1 {
-    font-size: 22pt;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    margin-bottom: 3px;
-  }
-  .name-title .sub {
-    font-size: 9.5pt;
-    color: #90b4d9;
-  }
-  .contact-info {
-    text-align: right;
-    font-size: 8.5pt;
-    color: #b8d0e5;
-    line-height: 1.7;
-  }
-  .badge-rqth {
-    display: inline-block;
-    background: rgba(255,255,255,0.12);
-    padding: 1px 8px;
-    border-radius: 3px;
-    font-size: 7.5pt;
-  }
-  .cv-body {
-    padding: 22px 35px 30px;
-  }
-  .section {
-    margin-bottom: 14px;
-  }
-  .section-title {
-    font-size: 11pt;
-    font-weight: 700;
-    color: #13294b;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    border-bottom: 2px solid #13294b;
-    padding-bottom: 4px;
-    margin-bottom: 8px;
-  }
-  .exp-item {
-    margin-bottom: 12px;
-  }
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2px 10px;
-  }
-  .exp-role {
-    font-weight: 700;
-    font-size: 10pt;
-    color: #13294b;
-  }
-  .exp-company {
-    font-weight: 600;
-    font-size: 9.5pt;
-    color: #2a4a7a;
-  }
-  .exp-date {
-    font-size: 8.5pt;
-    color: #888;
-  }
-  .exp-details {
-    padding-left: 16px;
-    margin-top: 2px;
-  }
-  .exp-details li {
-    font-size: 9pt;
-    color: #333;
-    margin-bottom: 1px;
-  }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 4px 15px;
-  }
-  .skill-cat {
-    margin-bottom: 4px;
-  }
-  .skill-cat-name {
-    font-weight: 700;
-    color: #13294b;
-    font-size: 9pt;
-  }
-  .skill-cat-items {
-    font-size: 9pt;
-    color: #444;
-  }
-  .soft-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 8px;
-  }
-  .soft-list span {
-    background: #eef3f8;
-    padding: 2px 10px;
-    border-radius: 3px;
-    font-size: 8.5pt;
-    color: #13294b;
-  }
-  .edu-item {
-    margin-bottom: 5px;
-  }
-  .edu-degree {
-    font-weight: 700;
-    font-size: 9.5pt;
-    color: #13294b;
-  }
-  .edu-school {
-    font-size: 9pt;
-    color: #444;
-  }
-  .edu-year {
-    font-size: 8.5pt;
-    color: #888;
-  }
-  .lang-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .lang-item { font-size: 9.5pt; }
-  .lang-item b { color: #13294b; }
-  .interests {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  .interests span {
-    background: #eef3f8;
-    padding: 3px 12px;
-    border-radius: 14px;
-    font-size: 8.5pt;
-    color: #13294b;
-  }
-  .action-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 25px;
-    border-radius: 6px;
-    font-size: 9.5pt;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-  .btn-primary { background: #13294b; color: white; }
-  .btn-primary:hover { background: #1e3a5f; }
-  .btn-outline { background: transparent; color: #13294b; border: 2px solid #13294b; }
-  .btn-outline:hover { background: #eef3f8; }
-  .footer-note {
-    text-align: center;
-    margin-top: 12px;
-    font-size: 7.5pt;
-    color: #aaa;
-    padding-bottom: 10px;
-  }
-  @media (max-width: 700px) {
-    .top-bar { flex-direction: column; }
-    .contact-info { text-align: left; width: 100%; }
-    .cv-body { padding: 15px 18px; }
-    .skills-grid { grid-template-columns: 1fr; }
-  }
-  @media print {
-    body { background: white; padding: 0; }
-    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
-    .action-buttons { display: none; }
-    .top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
-</style>
-</head>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #eef1f5; padding: 40px 20px; display: flex; justify-content: center; }
+  .page { max-width: 700px; width: 100%; }
+  h1 { font-size: 22pt; margin-bottom: 8px; }
+  .sub { font-size: 11pt; color: #555; margin-bottom: 25px; }
+  .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: flex; justify-content: space-between; align-items: center; }
+  .card h3 { font-size: 12pt; margin-bottom: 4px; }
+  .card p { font-size: 9pt; color: #666; }
+  .btn { background: #1a73e8; color: white; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 9pt; font-weight: 600; }
+  .btn:hover { background: #1558b0; }
+  .note { text-align: center; font-size: 8pt; color: #888; margin-top: 30px; }
+</style></head>
 <body>
 <div class="page">
-  <div class="top-bar">
-    <div class="name-title">
-      <h1>Faldou DIALLO</h1>
-      <div class="sub">Customer Success Engineer — Cybersécurité &amp; Avant-vente</div>
+  <h1>Faldou DIALLO</h1>
+  <div class="sub">CVs adaptés par poste</div>
+
+  <div class="card">
+    <div>
+      <h3>Customer Success Engineer</h3>
+      <p>Cybersécurité &amp; Avant-vente</p>
     </div>
-    <div class="contact-info">
-      Faldoudia@gmail.com<br>
-      06 98 707 721<br>
-      Ile de France<br>
-      Permis B <span class="badge-rqth">Reconnaissance RQTH</span>
-    </div>
+    <a class="btn" href="cv-csm.html">Ouvrir</a>
   </div>
 
-  <div class="cv-body">
-
-    <!-- PROFIL -->
-    <div class="section">
-      <div class="section-title">Profil</div>
-      <p style="font-size:9pt;color:#333;margin-bottom:6px;">
-        Professionnel orienté client avec 3+ ans d'expérience en Customer Success Engineering, cybersécurité et avant-vente. Accompagnement technique de bout en bout : analyse des besoins, cadrage, déploiement de solutions sécurisées, intégration réseau et résolution d'incidents. Interface entre les équipes techniques, commerciales et les clients pour garantir la satisfaction et la réussite des projets.
-      </p>
+  <div class="card">
+    <div>
+      <h3>Consultant Cybersécurité</h3>
+      <p>Sécurité des réseaux, SIEM, Wazuh</p>
     </div>
-
-    <!-- EXPERIENCES PROFESSIONNELLES -->
-    <div class="section">
-      <div class="section-title">Experiences professionnelles</div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">Customer Success Engineer</span>
-          <span class="exp-company">@ Cloudi-Fi — alternance</span>
-          <span class="exp-date">01/2023 - 09/2024</span>
-        </div>
-        <ul class="exp-details">
-          <li>Accompagnement technique et fonctionnel des clients dans le déploiement de solutions Cloudi-Fi : analyse des besoins, cadrage des projets et suivi des intégrations</li>
-          <li>Conseil auprès des clients sur les architectures réseau et les solutions de connectivité sécurisées adaptées à leurs environnements</li>
-          <li>Déploiement et configuration de portails captifs avec intégration aux infrastructures réseau (Cisco Meraki, Cisco WLC, Aruba, Ruckus, Fortinet)</li>
-          <li>Configuration des paramètres réseau (VLAN, DHCP, authentification RADIUS) et accompagnement des phases de recette et de mise en production</li>
-          <li>Analyse et résolution d'incidents techniques : diagnostic des problèmes de connexion, analyse des logs (Graylog, Kibana, Nginx) et coordination avec les équipes internes</li>
-          <li>Présentation des solutions techniques aux clients, accompagnement dans l'adoption de la plateforme et amélioration de l'expérience utilisateur</li>
-          <li>Collaboration avec les équipes commerciales, techniques et partenaires afin de garantir la satisfaction client et la réussite des projets</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">Apprenti IA &amp; Cybersécurité</span>
-          <span class="exp-company">@ Cloud-Inspire — alternance</span>
-          <span class="exp-date">09/2024 - 04/2025</span>
-        </div>
-        <ul class="exp-details">
-          <li>Rédaction de rapports et documentations techniques à destination des clients pour capitaliser les bonnes pratiques et assurer le transfert de compétences</li>
-          <li>Automatisation de workflows clients avec n8n (emails, mise à jour de fichiers) pour améliorer leur productivité</li>
-          <li>Déploiement de solutions Wazuh en Proof of Concept : suivi des retours clients et ajustement des configurations selon leurs besoins</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">Administrateur Système et Réseaux</span>
-          <span class="exp-company">@ DB-Investissement — alternance</span>
-          <span class="exp-date">09/2022 - 01/2023</span>
-        </div>
-        <ul class="exp-details">
-          <li>Gestion et inventaire des services informatiques avec GLPI — support utilisateurs et suivi des tickets</li>
-          <li>Mise en place et formation des clients sur Keeper Security (gestion de mots de passe)</li>
-          <li>Intervention, installation et déploiement des hôtes chez les clients avec accompagnement personnalisé</li>
-          <li>Configuration des postes de travail en fonction des besoins spécifiques de chaque utilisateur</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-role">Assistant Marketing Digital</span>
-          <span class="exp-company">@ Image 30 — stage</span>
-          <span class="exp-date">06/2021 - 08/2021</span>
-        </div>
-        <ul class="exp-details">
-          <li>Création de contenus web, veille concurrentielle et gestion de communication client</li>
-          <li>Opérations marketing et prospection auprès d'entreprises (France, Canada, Egypte)</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- HARD SKILLS -->
-    <div class="section">
-      <div class="section-title">Compétences clés</div>
-      <div class="skills-grid">
-        <div class="skill-cat">
-          <div class="skill-cat-name">Customer Success &amp; Avant-vente</div>
-          <div class="skill-cat-items">Onboarding, adoption, cadrage projet, présentation technique, accompagnement client, satisfaction</div>
-        </div>
-        <div class="skill-cat">
-          <div class="skill-cat-name">Infrastructure réseau &amp; Cybersécurité</div>
-          <div class="skill-cat-items">Cisco Meraki, Cisco WLC, Aruba, Ruckus, Fortinet, VLAN, DHCP, RADIUS, portails captifs</div>
-        </div>
-        <div class="skill-cat">
-          <div class="skill-cat-name">Diagnostic &amp; Monitoring</div>
-          <div class="skill-cat-items">Graylog, Kibana, Nginx, analyse de logs, résolution d'incidents, troubleshooting réseau</div>
-        </div>
-        <div class="skill-cat">
-          <div class="skill-cat-name">Solutions SaaS &amp; Cloud</div>
-          <div class="skill-cat-items">Cloudi-Fi, Azure, AWS, Wazuh, Keeper Security, n8n</div>
-        </div>
-        <div class="skill-cat">
-          <div class="skill-cat-name">Communication &amp; Collaboration</div>
-          <div class="skill-cat-items">Relation client, coordination inter-équipes, reporting, documentation technique</div>
-        </div>
-        <div class="skill-cat">
-          <div class="skill-cat-name">Compétences transverses</div>
-          <div class="skill-cat-items">Word, Excel, PowerPoint, rédaction de procédures, veille technologique</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SOFT SKILLS -->
-    <div class="section">
-      <div class="section-title">Soft Skills</div>
-      <div class="soft-list">
-        <span>Aisance relationnelle</span>
-        <span>Ecoute active</span>
-        <span>Capacite de synthese</span>
-        <span>Gestion des priorites</span>
-        <span>Reactivite</span>
-        <span>Esprit d'equipe</span>
-        <span>Professionnalisme</span>
-        <span>Empathie client</span>
-        <span>Persuasion</span>
-        <span>Organisation</span>
-      </div>
-    </div>
-
-    <!-- FORMATIONS -->
-    <div class="section">
-      <div class="section-title">Formations</div>
-      <div class="edu-item">
-        <span class="edu-degree">Master II, Ingenieur Systeme Reseaux Cybersecurite</span>
-        <span class="edu-year">2024-2025</span><br>
-        <span class="edu-school">MBA-ESG Paris</span>
-      </div>
-      <div class="edu-item">
-        <span class="edu-degree">Master I, Administrateur Systeme et Reseaux et Cloud</span>
-        <span class="edu-year">2022-2024</span><br>
-        <span class="edu-school">Ecole Aston Arcueil</span>
-      </div>
-      <div class="edu-item">
-        <span class="edu-degree">Licence Informatique</span>
-        <span class="edu-year">2020-2022</span><br>
-        <span class="edu-school">Universite Sorbonne Paris</span>
-      </div>
-    </div>
-
-    <!-- LANGUES -->
-    <div class="section">
-      <div class="section-title">Langues</div>
-      <div class="lang-grid">
-        <div class="lang-item"><b>Francais</b>, Courant</div>
-        <div class="lang-item"><b>Anglais</b>, Professionnel</div>
-      </div>
-    </div>
-
-    <!-- BOUTONS -->
-    <div class="action-buttons">
-      <button class="btn btn-primary" onclick="window.print()">Telecharger PDF</button>
-      <a href="mailto:faldoudia@gmail.com?subject=Candidature%20Customer%20Success%20Engineer%20-%20Faldou%20DIALLO" class="btn btn-outline">Me contacter</a>
-    </div>
+    <a class="btn" href="cv-consult-cyber.html">Ouvrir</a>
   </div>
 
-  <div class="footer-note">
-    Faldou DIALLO, CV Customer Success Engineer — mis a jour le 20/07/2026
+  <div class="card">
+    <div>
+      <h3>Analyste SOC</h3>
+      <p>Détection d'incidents, SIEM, Threat Intelligence</p>
+    </div>
+    <a class="btn" href="cv-soc.html">Ouvrir</a>
   </div>
+
+  <div class="card">
+    <div>
+      <h3>Ingénieur Avant-Vente</h3>
+      <p>Solutions réseaux &amp; cybersécurité</p>
+    </div>
+    <a class="btn" href="cv-avantvente.html">Ouvrir</a>
+  </div>
+
+  <div class="note">Cliquez sur un CV pour le voir ou faites Ctrl+P pour le télécharger en PDF</div>
 </div>
 </body>
 </html>

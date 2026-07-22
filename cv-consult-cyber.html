@@ -169,30 +169,6 @@
     font-size: 8.5pt;
     color: #13294b;
   }
-  .action-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 25px;
-    border-radius: 6px;
-    font-size: 9.5pt;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-  .btn-primary { background: #13294b; color: white; }
-  .btn-primary:hover { background: #1e3a5f; }
-  .btn-outline { background: transparent; color: #13294b; border: 2px solid #13294b; }
-  .btn-outline:hover { background: #eef3f8; }
   .footer-note {
     text-align: center;
     margin-top: 12px;
@@ -209,7 +185,6 @@
   @media print {
     body { background: white; padding: 0; }
     .page { box-shadow: none; border-radius: 0; max-width: 100%; }
-    .action-buttons { display: none; }
     .top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
@@ -379,12 +354,7 @@
       </div>
     </div>
 
-    <!-- BOUTONS -->
-    <div class="action-buttons">
-      <button class="btn btn-primary" onclick="window.print()">Telecharger PDF</button>
-      <a href="mailto:faldoudia@gmail.com?subject=Candidature%20Consultant%20Cybersecurite%20-%20Faldou%20DIALLO" class="btn btn-outline">Me contacter</a>
-    </div>
-  </div>
+    <!-- BOUTONS supprimes -->
 
   <div class="footer-note">
     Faldou DIALLO, CV Consultant Cybersécurité — mis a jour le 19/07/2026

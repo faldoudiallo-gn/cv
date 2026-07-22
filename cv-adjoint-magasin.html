@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faldou DIALLO, Responsable Adjoint de Magasin</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    background: #eef1f5;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .page {
+    max-width: 210mm;
+    width: 100%;
+    background: white;
+    box-shadow: 0 3px 25px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .top-bar {
+    background: #13294b;
+    color: white;
+    padding: 28px 35px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .name-title h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 3px;
+  }
+  .name-title .sub {
+    font-size: 9.5pt;
+    color: #90b4d9;
+  }
+  .contact-info {
+    text-align: right;
+    font-size: 8.5pt;
+    color: #b8d0e5;
+    line-height: 1.7;
+  }
+  .badge-rqth {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 7.5pt;
+  }
+  .cv-body {
+    padding: 22px 35px 30px;
+  }
+  .section {
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #13294b;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #13294b;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+  }
+  .exp-item {
+    margin-bottom: 12px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+  }
+  .exp-role {
+    font-weight: 700;
+    font-size: 10pt;
+    color: #13294b;
+  }
+  .exp-company {
+    font-weight: 600;
+    font-size: 9.5pt;
+    color: #2a4a7a;
+  }
+  .exp-date {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .exp-details {
+    padding-left: 16px;
+    margin-top: 2px;
+  }
+  .exp-details li {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 1px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 15px;
+  }
+  .skill-cat {
+    margin-bottom: 4px;
+  }
+  .skill-cat-name {
+    font-weight: 700;
+    color: #13294b;
+    font-size: 9pt;
+  }
+  .skill-cat-items {
+    font-size: 9pt;
+    color: #444;
+  }
+  .soft-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .soft-list span {
+    background: #eef3f8;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .edu-item {
+    margin-bottom: 5px;
+  }
+  .edu-degree {
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: #13294b;
+  }
+  .edu-school {
+    font-size: 9pt;
+    color: #444;
+  }
+  .edu-year {
+    font-size: 8.5pt;
+    color: #888;
+  }
+  .lang-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .lang-item { font-size: 9.5pt; }
+  .lang-item b { color: #13294b; }
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .interests span {
+    background: #eef3f8;
+    padding: 3px 12px;
+    border-radius: 14px;
+    font-size: 8.5pt;
+    color: #13294b;
+  }
+  .footer-note {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 7.5pt;
+    color: #aaa;
+    padding-bottom: 10px;
+  }
+  @media (max-width: 700px) {
+    .top-bar { flex-direction: column; }
+    .contact-info { text-align: left; width: 100%; }
+    .cv-body { padding: 15px 18px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
+    .top-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar">
+    <div class="name-title">
+      <h1>Faldou DIALLO</h1>
+      <div class="sub">Responsable Adjoint de Magasin — Retail &amp; Management d'équipe</div>
+    </div>
+    <div class="contact-info">
+      Faldoudia@gmail.com<br>
+      06 98 707 721<br>
+      Ile de France<br>
+      Permis B <span class="badge-rqth">Reconnaissance RQTH</span>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- PROFIL -->
+    <div class="section">
+      <div class="section-title">Profil</div>
+      <p style="font-size:9pt;color:#333;margin-bottom:6px;">
+        Professionnel du retail et du management d'équipe avec une solide expérience en accompagnement client, gestion opérationnelle et pilotage de la performance. Compétences développées en gestion des stocks, merchandising, atteinte des objectifs commerciaux et coordination d'équipe. Maîtrise des outils digitaux et de gestion. Organisé, réactif et orienté résultats avec un fort sens du service client.
+      </p>
+    </div>
+
+    <!-- EXPERIENCES PROFESSIONNELLES -->
+    <div class="section">
+      <div class="section-title">Experiences professionnelles</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Responsable Adjoint de Magasin</span>
+          <span class="exp-company">@ La Casa de las Carcasas</span>
+          <span class="exp-date">2025 - Aujourd'hui</span>
+        </div>
+        <ul class="exp-details">
+          <li>Encadrement et animation d'une équipe de vendeurs : briefs quotidiens, répartition des tâches, suivi de la performance individuelle et collective</li>
+          <li>Atteinte des objectifs de vente et pilotage des indicateurs clés (CA, panier moyen, taux de conversion)</li>
+          <li>Accueil, conseil et fidélisation de la clientèle avec un haut niveau de satisfaction</li>
+          <li>Gestion des stocks, réceptions et inventaires via outils RFID</li>
+          <li>Merchandising et mise en rayon : respect du plan merchandising, visuels et PLV</li>
+          <li>Supervision des encaissements et gestion de la caisse</li>
+          <li>Participation au recrutement et à l'intégration des nouveaux collaborateurs</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Customer Success Engineer</span>
+          <span class="exp-company">@ Cloudi-Fi — alternance</span>
+          <span class="exp-date">01/2023 - 09/2024</span>
+        </div>
+        <ul class="exp-details">
+          <li>Accompagnement client de bout en bout : analyse des besoins, cadrage, déploiement et suivi</li>
+          <li>Relation client et interface entre les équipes techniques, commerciales et les clients</li>
+          <li>Présentation de solutions techniques et accompagnement à l'adoption</li>
+          <li>Résolution d'incidents et coordination inter-équipes</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Assistant Marketing Digital</span>
+          <span class="exp-company">@ Image 30 — stage</span>
+          <span class="exp-date">06/2021 - 08/2021</span>
+        </div>
+        <ul class="exp-details">
+          <li>Création de contenus web et gestion de communication client</li>
+          <li>Opérations marketing et prospection auprès d'entreprises (France, Canada, Egypte)</li>
+          <li>Veille concurrentielle et reporting</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COMPETENCES RETAIL -->
+    <div class="section">
+      <div class="section-title">Compétences clés</div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <div class="skill-cat-name">Management &amp; Animation d'équipe</div>
+          <div class="skill-cat-items">Briefs, délégation, formation, intégration, motivation, suivi de performance</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Vente &amp; Relation Client</div>
+          <div class="skill-cat-items">Accueil, conseil, fidélisation, objectifs CA, upselling, satisfaction client</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Gestion Opérationnelle</div>
+          <div class="skill-cat-items">Stocks, inventaires, RFID, réceptions, caisse, encaissements</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Merchandising &amp; Visuel</div>
+          <div class="skill-cat-items">Plan merchandising, vitrines, PLV, implantation, tenue du magasin</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Pilotage &amp; Reporting</div>
+          <div class="skill-cat-items">Tableaux de bord, KPI, CA, analyse des résultats, reporting</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Outils &amp; Digital</div>
+          <div class="skill-cat-items">Excel, CRM, outils de gestion, RFID, caisse informatisée</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="section">
+      <div class="section-title">Soft Skills</div>
+      <div class="soft-list">
+        <span>Aisance relationnelle</span>
+        <span>Leadership</span>
+        <span>Ecoute active</span>
+        <span>Rigueur</span>
+        <span>Reactivite</span>
+        <span>Esprit d'equipe</span>
+        <span>Organisation</span>
+        <span>Professionnalisme</span>
+        <span>Polyvalence</span>
+        <span>Oriente resultats</span>
+      </div>
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="section">
+      <div class="section-title">Formations</div>
+      <div class="edu-item">
+        <span class="edu-degree">Master II, Ingenieur Systeme Reseaux Cybersecurite</span>
+        <span class="edu-year">2024-2025</span><br>
+        <span class="edu-school">MBA-ESG Paris</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Master I, Administrateur Systeme et Reseaux et Cloud</span>
+        <span class="edu-year">2022-2024</span><br>
+        <span class="edu-school">Ecole Aston Arcueil</span>
+      </div>
+      <div class="edu-item">
+        <span class="edu-degree">Licence Informatique</span>
+        <span class="edu-year">2020-2022</span><br>
+        <span class="edu-school">Universite Sorbonne Paris</span>
+      </div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="section">
+      <div class="section-title">Langues</div>
+      <div class="lang-grid">
+        <div class="lang-item"><b>Francais</b>, Courant</div>
+        <div class="lang-item"><b>Anglais</b>, Professionnel</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    Faldou DIALLO, CV Responsable Adjoint de Magasin — mis a jour le 21/07/2026
+  </div>
+</div>
+</body>
+</html>

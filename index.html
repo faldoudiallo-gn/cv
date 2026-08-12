@@ -8,12 +8,22 @@
   .page { max-width: 700px; width: 100%; }
   h1 { font-size: 22pt; margin-bottom: 8px; }
   .sub { font-size: 11pt; color: #555; margin-bottom: 25px; }
-  .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: flex; justify-content: space-between; align-items: center; }
+  .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .card h3 { font-size: 12pt; margin-bottom: 4px; }
   .card p { font-size: 9pt; color: #666; }
-  .btn { background: #1a73e8; color: white; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 9pt; font-weight: 600; }
-  .btn:hover { background: #1558b0; }
+  .btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .btn { color: white; text-decoration: none; padding: 9px 16px; border-radius: 6px; font-size: 9pt; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .btn-open { background: #1a73e8; }
+  .btn-open:hover { background: #1558b0; }
+  .btn-dl { background: #13294b; }
+  .btn-dl:hover { background: #1e3a6b; }
   .note { text-align: center; font-size: 8pt; color: #888; margin-top: 30px; }
+  @media (max-width: 560px) {
+    .card { flex-direction: column; align-items: flex-start; }
+    .btns { width: 100%; }
+    .btn { flex: 1; justify-content: center; }
+  }
 </style></head>
 <body>
 <div class="page">
@@ -25,7 +35,10 @@
       <h3>Responsable Adjoint de Magasin</h3>
       <p>Retail, Management d'équipe &amp; Vente</p>
     </div>
-    <a class="btn" href="cv-adjoint-magasin.html">Ouvrir</a>
+    <div class="btns">
+      <a class="btn btn-open" href="cv-adjoint-magasin.html">Ouvrir</a>
+      <a class="btn btn-dl" href="cv-adjoint-magasin.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+    </div>
   </div>
 
   <div class="card">
@@ -33,7 +46,10 @@
       <h3>Customer Success Engineer</h3>
       <p>Cybersécurité &amp; Avant-vente</p>
     </div>
-    <a class="btn" href="cv-csm.html">Ouvrir</a>
+    <div class="btns">
+      <a class="btn btn-open" href="cv-csm.html">Ouvrir</a>
+      <a class="btn btn-dl" href="cv-csm.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+    </div>
   </div>
 
   <div class="card">
@@ -41,7 +57,10 @@
       <h3>Consultant Cybersécurité</h3>
       <p>Sécurité des réseaux, SIEM, Wazuh</p>
     </div>
-    <a class="btn" href="cv-consult-cyber.html">Ouvrir</a>
+    <div class="btns">
+      <a class="btn btn-open" href="cv-consult-cyber.html">Ouvrir</a>
+      <a class="btn btn-dl" href="cv-consult-cyber.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+    </div>
   </div>
 
   <div class="card">
@@ -49,7 +68,10 @@
       <h3>Analyste SOC</h3>
       <p>Détection d'incidents, SIEM, Threat Intelligence</p>
     </div>
-    <a class="btn" href="cv-soc.html">Ouvrir</a>
+    <div class="btns">
+      <a class="btn btn-open" href="cv-soc.html">Ouvrir</a>
+      <a class="btn btn-dl" href="cv-soc.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+    </div>
   </div>
 
   <div class="card">
@@ -57,10 +79,13 @@
       <h3>Ingénieur Avant-Vente</h3>
       <p>Solutions réseaux &amp; cybersécurité</p>
     </div>
-    <a class="btn" href="cv-avantvente.html">Ouvrir</a>
+    <div class="btns">
+      <a class="btn btn-open" href="cv-avantvente.html">Ouvrir</a>
+      <a class="btn btn-dl" href="cv-avantvente.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+    </div>
   </div>
 
-  <div class="note">Cliquez sur un CV pour le voir ou faites Ctrl+P pour le télécharger en PDF</div>
+  <div class="note">Ouvrez un CV pour le consulter ou téléchargez-le en PDF</div>
 </div>
 </body>
 </html>

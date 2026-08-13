@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "description": "Base de suivi des candidatures - Job Tracker Strategique (Faldou DIALLO)",
+    "regles": {
+      "anti_doublon": "Une offre ne doit jamais etre presentee plus d'une fois. La cle unique est le champ 'url'.",
+      "statuts": ["vu", "postule", "entretien", "refus", "accepte", "a_relancer"]
+    },
+    "derniere_maj": "2026-08-13"
+  },
+  "candidatures": []
+}

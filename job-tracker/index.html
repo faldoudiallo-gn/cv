@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Tracker Stratégique — Suivi des candidatures</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background: #eef1f5; padding: 25px 15px; color: #1a1a1a; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  .top-bar { background: #13294b; color: white; padding: 26px 30px; border-radius: 8px 8px 0 0; }
+  .top-bar h1 { font-size: 19pt; }
+  .top-bar .sub { color: #90b4d9; font-size: 10pt; margin-top: 2px; }
+  .actions { display: flex; gap: 10px; padding: 14px 0; flex-wrap: wrap; }
+  .btn { text-decoration: none; padding: 10px 16px; border-radius: 6px; font-size: 10pt; font-weight: 600; color: white; }
+  .btn-strat { background: #1a73e8; }
+  .btn-strat:hover { background: #1558b0; }
+  .btn-cv { background: #2a4a7a; }
+  .btn-cv:hover { background: #1e3a6b; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 14px 0; }
+  .stat { background: white; border-radius: 8px; padding: 14px; box-shadow: 0 1px 6px rgba(0,0,0,.06); text-align: center; }
+  .stat .n { font-size: 20pt; font-weight: 700; color: #13294b; }
+  .stat .l { font-size: 8.5pt; color: #666; text-transform: uppercase; letter-spacing: .5px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .filter { padding: 7px 13px; border-radius: 16px; border: 1px solid #c9d4e0; background: white; font-size: 9pt; cursor: pointer; color: #333; }
+  .filter.active { background: #13294b; color: white; border-color: #13294b; }
+  .card { background: white; border-radius: 8px; padding: 16px 18px; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.05); border-left: 4px solid #ccc; }
+  .card.vu { border-left-color: #f0ad4e; }
+  .card.postule { border-left-color: #1a73e8; }
+  .card.entretien { border-left-color: #5cb85c; }
+  .card.refus { border-left-color: #d9534f; }
+  .card.accepte { border-left-color: #13294b; }
+  .card.a_relancer { border-left-color: #9370DB; }
+  .card .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .card h3 { font-size: 11pt; color: #13294b; }
+  .card .meta { font-size: 8.5pt; color: #666; margin-top: 2px; }
+  .card .meta b { color: #333; }
+  .tag { display: inline-block; padding: 1px 9px; border-radius: 12px; font-size: 8pt; font-weight: 600; color: white; }
+  .tag.vu { background: #f0ad4e; }
+  .tag.postule { background: #1a73e8; }
+  .tag.entretien { background: #5cb85c; }
+  .tag.refus { background: #d9534f; }
+  .tag.accepte { background: #13294b; }
+  .tag.a_relancer { background: #9370DB; }
+  .card .foot { margin-top: 8px; font-size: 8.5pt; }
+  .card .match { font-weight: 700; color: #2a4a7a; }
+  .card a { color: #1a73e8; }
+  .empty { text-align: center; padding: 40px; color: #888; font-size: 10pt; }
+  .empty b { color: #13294b; }
+  .footer-note { text-align: center; margin-top: 20px; font-size: 8pt; color: #aaa; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar">
+    <h1>Job Tracker Stratégique</h1>
+    <div class="sub">Tableau de bord de suivi des candidatures · Faldou DIALLO</div>
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-strat" href="strategie.html">📋 Stratégie de candidature Junior</a>
+    <a class="btn btn-cv" href="../index.html">Mes CVs</a>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="filters" id="filters"></div>
+
+  <div id="list"></div>
+
+  <div class="footer-note">Job Tracker Stratégique · Faldou DIALLO · mis à jour le 13/08/2026 · les offres déjà présentées ne réapparaissent jamais</div>
+</div>
+
+<script>
+const STATUTS = ["vu","postule","entretien","refus","accepte","a_relancer"];
+const LABELS = {
+  vu:"Vu", postule:"Postulé", entretien:"Entretien", refus:"Refus", accepte:"Accepté", a_relancer:"À relancer"
+};
+let data = { candidatures: [] };
+let filter = "tous";
+
+function percentFromScore(s){
+  const m = (s||"").match(/(\d+)\s*%/);
+  return m ? parseInt(m[1]) : null;
+}
+
+function load(){
+  fetch("data/candidatures.json", {cache:"no-store"})
+    .then(r => r.json())
+    .then(d => { data = d; render(); })
+    .catch(() => {
+      // fallback si base vide / non servie
+      render();
+    });
+}
+
+function render(){
+  const cands = data.candidatures || [];
+  // stats
+  const counts = { vu:0, postule:0, entretien:0, refus:0, accepte:0, a_relancer:0 };
+  cands.forEach(c => { if(counts[c.statut] !== undefined) counts[c.statut]++; });
+  const done = counts.accepte + counts.entretien;
+  const statsEl = document.getElementById("stats");
+  statsEl.innerHTML = `
+    <div class="stat"><div class="n">${cands.length}</div><div class="l">Total offres</div></div>
+    <div class="stat"><div class="n">${counts.postule}</div><div class="l">Postulé</div></div>
+    <div class="stat"><div class="n">${counts.entretien}</div><div class="l">Entretiens</div></div>
+    <div class="stat"><div class="n">${counts.accepte}</div><div class="l">Accepté</div></div>
+    <div class="stat"><div class="n">${counts.a_relancer}</div><div class="l">À relancer</div></div>`;
+
+  // filtres
+  const filtersEl = document.getElementById("filters");
+  let fhtml = `<button class="filter ${filter==='tous'?'active':''}" onclick="set('tous')">Tous (${cands.length})</button>`;
+  STATUTS.forEach(s => {
+    if(counts[s] > 0) fhtml += `<button class="filter ${filter===s?'active':''}" onclick="set('${s}')">${LABELS[s]} (${counts[s]})</button>`;
+  });
+  filtersEl.innerHTML = fhtml;
+
+  // liste
+  const listEl = document.getElementById("list");
+  let shown = cands.filter(c => filter==="tous" || c.statut===filter);
+  shown.sort((a,b) => (b.date_ajout||"").localeCompare(a.date_ajout||""));
+  if(shown.length === 0){
+    listEl.innerHTML = `<div class="empty">Aucune candidature ${filter!=="tous"?'avec ce statut':''} pour le moment.<br><b>Rendez-vous demain à 10h</b> pour les 9 offres fraîches du jour.</div>`;
+    return;
+  }
+  listEl.innerHTML = shown.map(c => {
+    const pct = percentFromScore(c.match);
+    const matchTxt = pct != null ? `<span class="match">Match ${pct}%</span>` : "";
+    const poste = c.poste ? `<b>${c.poste}</b>` : "";
+    const lien = c.url ? ` · <a href="${c.url}" target="_blank">Voir l'offre</a>` : "";
+    return `<div class="card ${c.statut||'vu'}">
+      <div class="top">
+        <h3>${c.entreprise || 'Entreprise'} ${poste}</h3>
+        <span class="tag ${c.statut||'vu'}">${LABELS[c.statut] || c.statut}</span>
+      </div>
+      <div class="meta">${c.ville||''}${c.seniorite?' · Seniorité : '+c.seniorite:''} · Ajouté le ${c.date_ajout||''} ${matchTxt}</div>
+      <div class="foot">${c.titre||''}${lien}</div>
+    </div>`;
+  }).join("");
+}
+
+function set(s){ filter = s; render(); }
+load();
+</script>
+</body>
+</html>

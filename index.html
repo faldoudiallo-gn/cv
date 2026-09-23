@@ -1,91 +1,206 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8"><title>CVs - Faldou DIALLO</title>
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CV de Faldou Diallo, Consultant Cybersécurité et Ingénieur Réseaux. CVs adaptés par poste : Analyste SOC, Consultant Cybersécurité, Ingénieur Avant-Vente, Customer Success Engineer.">
+<meta property="og:title" content="Faldou DIALLO, Consultant Cybersécurité & Ingénieur Réseaux">
+<meta property="og:description" content="CVs adaptés par poste : Analyste SOC, Consultant Cybersécurité, Ingénieur Avant-Vente, Customer Success Engineer.">
+<meta property="og:type" content="profile">
+<title>Faldou DIALLO, Consultant Cybersécurité & Ingénieur Réseaux</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #eef1f5; padding: 40px 20px; display: flex; justify-content: center; }
-  .page { max-width: 700px; width: 100%; }
-  h1 { font-size: 22pt; margin-bottom: 8px; }
-  .sub { font-size: 11pt; color: #555; margin-bottom: 25px; }
-  .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-  .card h3 { font-size: 12pt; margin-bottom: 4px; }
-  .card p { font-size: 9pt; color: #666; }
+  :root {
+    --primary: #1558b0;
+    --primary-dark: #0f4a94;
+    --navy: #13294b;
+    --navy-2: #1e3a6b;
+    --text: #1a2333;
+    --text-soft: #4a5568;
+    --text-mute: #5a6472;
+    --bg: #f0f3f8;
+    --card: #ffffff;
+    --border: #dde3ec;
+  }
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 36px 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .page { max-width: 760px; width: 100%; }
+
+  .skip-link {
+    position: absolute; left: 8px; top: -48px; z-index: 100;
+    background: var(--primary); color: #fff;
+    padding: 10px 18px; border-radius: 6px; font-size: 10pt; font-weight: 600;
+    transition: top .15s ease;
+  }
+  .skip-link:focus { top: 8px; }
+  :focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+  :focus:not(:focus-visible) { outline: none; }
+
+  header.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--primary-dark) 100%);
+    color: #fff; border-radius: 14px; padding: 34px 30px 30px;
+    margin-bottom: 28px; box-shadow: 0 4px 18px rgba(19, 41, 75, .22);
+  }
+  header.hero .eyebrow {
+    font-size: 9pt; letter-spacing: .14em; text-transform: uppercase;
+    color: #bcd3f0; font-weight: 600; margin-bottom: 8px;
+  }
+  header.hero h1 { font-size: 24pt; line-height: 1.15; margin-bottom: 6px; }
+  header.hero .tagline { font-size: 11pt; color: #d8e4f4; margin-bottom: 18px; }
+  .contact-bar { display: flex; flex-wrap: wrap; gap: 10px; }
+  .contact-bar a {
+    color: #fff; text-decoration: none; font-size: 9pt; font-weight: 600;
+    background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .28);
+    padding: 7px 13px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .contact-bar a:hover { background: rgba(255, 255, 255, .24); }
+  .contact-bar svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  h2.list-title {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--text-soft); margin: 0 0 12px 4px; font-weight: 700;
+  }
+  ul.cards { list-style: none; }
+  ul.cards > li { margin-bottom: 12px; }
+  article.card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    box-shadow: 0 1px 4px rgba(19, 41, 75, .06);
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  article.card:hover { border-color: #b9c7dc; box-shadow: 0 3px 12px rgba(19, 41, 75, .12); }
+  .card h3 { font-size: 12.5pt; margin-bottom: 3px; color: var(--navy); }
+  .card p { font-size: 9.5pt; color: var(--text-mute); }
   .btns { display: flex; gap: 8px; flex-shrink: 0; }
-  .btn { color: white; text-decoration: none; padding: 9px 16px; border-radius: 6px; font-size: 9pt; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .btn {
+    color: #fff; text-decoration: none; padding: 9px 16px; border-radius: 8px;
+    font-size: 9.5pt; font-weight: 600; display: inline-flex; align-items: center; gap: 7px;
+  }
   .btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .btn-open { background: #1a73e8; }
-  .btn-open:hover { background: #1558b0; }
-  .btn-dl { background: #13294b; }
-  .btn-dl:hover { background: #1e3a6b; }
-  .note { text-align: center; font-size: 8pt; color: #888; margin-top: 30px; }
+  .btn-open { background: var(--primary); }
+  .btn-open:hover { background: var(--primary-dark); }
+  .btn-dl { background: var(--navy); }
+  .btn-dl:hover { background: var(--navy-2); }
+  footer.note {
+    text-align: center; font-size: 9pt; color: var(--text-mute); margin-top: 26px;
+  }
   @media (max-width: 560px) {
-    .card { flex-direction: column; align-items: flex-start; }
+    body { padding: 20px 12px; }
+    header.hero { padding: 26px 20px; }
+    header.hero h1 { font-size: 19pt; }
+    article.card { flex-direction: column; align-items: flex-start; }
     .btns { width: 100%; }
     .btn { flex: 1; justify-content: center; }
   }
-</style></head>
+  @media print {
+    body { background: #fff; padding: 0; }
+    header.hero { background: #fff; color: #000; border: 1px solid #ccc; box-shadow: none; }
+    header.hero .tagline, header.hero .eyebrow { color: #444; }
+    .contact-bar a { color: #000; background: none; border-color: #ccc; }
+    article.card { box-shadow: none; }
+  }
+</style>
+</head>
 <body>
+<a class="skip-link" href="#cv-liste">Aller à la liste des CVs</a>
 <div class="page">
-  <h1>Faldou DIALLO</h1>
-  <div class="sub">CVs adaptés par poste</div>
 
-  <div class="card">
-    <div>
-      <h3>Responsable Adjoint de Magasin</h3>
-      <p>Retail, Management d'équipe &amp; Vente</p>
-    </div>
-    <div class="btns">
-      <a class="btn btn-open" href="cv-adjoint-magasin.html">Ouvrir</a>
-      <a class="btn btn-dl" href="cv-adjoint-magasin.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
-    </div>
-  </div>
+  <header class="hero">
+    <p class="eyebrow">Portefeuille de CVs</p>
+    <h1>Faldou DIALLO</h1>
+    <p class="tagline">Consultant Cybersécurité &amp; Ingénieur Réseaux : SOC/SIEM, gestion des vulnérabilités, réseaux et firewalls.</p>
+    <nav class="contact-bar" aria-label="Contact">
+      <a href="mailto:Faldoudia@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Faldoudia@gmail.com
+      </a>
+      <a href="tel:+33698707721">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        06 98 707 721
+      </a>
+      <a href="https://github.com/faldoudiallo-gn" >
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </header>
 
-  <div class="card">
-    <div>
-      <h3>Customer Success Engineer</h3>
-      <p>Cybersécurité &amp; Avant-vente</p>
-    </div>
-    <div class="btns">
-      <a class="btn btn-open" href="cv-csm.html">Ouvrir</a>
-      <a class="btn btn-dl" href="cv-csm.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
-    </div>
-  </div>
+  <main>
+    <h2 class="list-title" id="cv-liste">CVs adaptés par poste</h2>
+    <ul class="cards">
+      <li>
+        <article class="card">
+          <div>
+            <h3>Consultant Cybersécurité</h3>
+            <p>Sécurité des réseaux, SIEM, Wazuh</p>
+          </div>
+          <div class="btns">
+            <a class="btn btn-open" href="cv-consult-cyber.html">Ouvrir</a>
+            <a class="btn btn-dl" href="cv-consult-cyber.pdf" download aria-label="Télécharger le CV Consultant Cybersécurité en PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <div>
+            <h3>Analyste SOC</h3>
+            <p>Détection d'incidents, SIEM, Threat Intelligence</p>
+          </div>
+          <div class="btns">
+            <a class="btn btn-open" href="cv-soc.html">Ouvrir</a>
+            <a class="btn btn-dl" href="cv-soc.pdf" download aria-label="Télécharger le CV Analyste SOC en PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <div>
+            <h3>Ingénieur Avant-Vente</h3>
+            <p>Solutions réseaux &amp; cybersécurité</p>
+          </div>
+          <div class="btns">
+            <a class="btn btn-open" href="cv-avantvente.html">Ouvrir</a>
+            <a class="btn btn-dl" href="cv-avantvente.pdf" download aria-label="Télécharger le CV Ingénieur Avant-Vente en PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <div>
+            <h3>Customer Success Engineer</h3>
+            <p>Cybersécurité &amp; Avant-vente</p>
+          </div>
+          <div class="btns">
+            <a class="btn btn-open" href="cv-csm.html">Ouvrir</a>
+            <a class="btn btn-dl" href="cv-csm.pdf" download aria-label="Télécharger le CV Customer Success Engineer en PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <div>
+            <h3>Responsable Adjoint de Magasin</h3>
+            <p>Retail, Management d'équipe &amp; Vente</p>
+          </div>
+          <div class="btns">
+            <a class="btn btn-open" href="cv-adjoint-magasin.html">Ouvrir</a>
+            <a class="btn btn-dl" href="cv-adjoint-magasin.pdf" download aria-label="Télécharger le CV Responsable Adjoint de Magasin en PDF"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </main>
 
-  <div class="card">
-    <div>
-      <h3>Consultant Cybersécurité</h3>
-      <p>Sécurité des réseaux, SIEM, Wazuh</p>
-    </div>
-    <div class="btns">
-      <a class="btn btn-open" href="cv-consult-cyber.html">Ouvrir</a>
-      <a class="btn btn-dl" href="cv-consult-cyber.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div>
-      <h3>Analyste SOC</h3>
-      <p>Détection d'incidents, SIEM, Threat Intelligence</p>
-    </div>
-    <div class="btns">
-      <a class="btn btn-open" href="cv-soc.html">Ouvrir</a>
-      <a class="btn btn-dl" href="cv-soc.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div>
-      <h3>Ingénieur Avant-Vente</h3>
-      <p>Solutions réseaux &amp; cybersécurité</p>
-    </div>
-    <div class="btns">
-      <a class="btn btn-open" href="cv-avantvente.html">Ouvrir</a>
-      <a class="btn btn-dl" href="cv-avantvente.pdf" download><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Télécharger</a>
-    </div>
-  </div>
-
-  <div class="note">Ouvrez un CV pour le consulter ou téléchargez-le en PDF</div>
+  <footer class="note">Ouvrez un CV pour le consulter ou téléchargez-le en PDF.</footer>
 </div>
 </body>
 </html>
